@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>挽回 ISTP 挑战</title>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:PingFang SC,Microsoft YaHei,sans-serif;background:#faf6ef;color:#14110f;min-height:100vh;padding-bottom:30px}
+.pg{position:fixed;inset:0;z-index:-1;background:#faf6ef;background-image:radial-gradient(circle at 20% 12%,rgba(255,207,111,0.25),transparent 26rem),radial-gradient(circle at 82% 4%,rgba(255,180,50,0.15),transparent 22rem)}
+.ap{width:min(100%,520px);min-height:100vh;margin:0 auto;padding:12px 16px;position:relative}
+.tb{display:flex;justify-content:space-between;font-size:11px;color:#9a8a78;padding:4px 0 8px}
+.tb span{background:rgba(255,255,255,.8);border:1px solid rgba(20,17,15,.1);border-radius:999px;padding:4px 10px}
+.he{background:linear-gradient(145deg,#fffcf7,#fdf3e0);border:1px solid rgba(20,17,15,.12);border-radius:12px;min-height:170px;margin:8px 0 14px;position:relative;overflow:hidden;box-shadow:0 18px 42px rgba(63,35,18,.08)}
+.hi{position:absolute;inset:14px;border:1px dashed rgba(20,17,15,.15);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.h2{font-size:44px;margin-bottom:6px}.h3{font-size:19px;font-weight:700;color:#c27a1a;text-align:center}
+.h4{font-size:12px;color:#6a5a48;margin-top:4px;text-align:center;line-height:1.6;padding:0 8px}
+.h5{font-size:11px;color:#9a8a78;margin-top:6px;text-align:center;line-height:1.6;padding:0 8px}
+.h6{display:flex;gap:14px;margin-top:8px;font-size:11px;color:#9a8a78}
+.h6 span{padding:2px 10px;background:rgba(255,255,255,.6);border-radius:20px}
+.ca{background:#fffcf7;border:1px solid rgba(20,17,15,.08);border-radius:12px;padding:18px;margin-bottom:10px;box-shadow:0 4px 16px rgba(63,35,18,.04)}
+.la{display:flex;justify-content:space-between;margin-bottom:8px}
+.lb2{background:#ffcf6f20;color:#c27a1a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px}
+.ld2{font-size:11px;color:#c0392b}
+.ls2{font-size:14px;color:#6a5a48;line-height:1.7;margin-bottom:12px;padding:10px 12px;background:rgba(255,207,111,.06);border-radius:8px;border-left:3px solid #ffcf6f}
+.ll2{font-size:15px;font-weight:600;margin-bottom:14px;padding:10px;background:#faf6ef;border-radius:8px;text-align:center}
+.op{display:flex;flex-direction:column;gap:7px}
+.bt{width:100%;padding:12px;border:1px solid rgba(20,17,15,.08);border-radius:8px;background:#fffcf7;font-size:13px;color:#14110f;cursor:pointer;text-align:left;transition:all .15s;line-height:1.4}
+.bt:active{transform:scale(.97);border-color:#f4a261}
+.bt .il2{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;color:#fff;font-size:10px;font-weight:700;margin-right:8px}
+.bt .b1{background:#f4a261}.bt .b2{background:#e07a5f}.bt .b3{background:#d4af37}.bt .b4{background:#8ecae6}
+.re2{font-size:52px;text-align:center;margin-bottom:4px}.rt2{font-size:20px;font-weight:800;color:#c27a1a;text-align:center}
+.rs{font-size:12px;color:#6a5a48;text-align:center;margin-top:3px}
+.rb2{display:inline-block;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;margin:8px auto;text-align:center}
+.rd2{font-size:13px;color:#555;line-height:1.8;padding:14px;background:rgba(255,207,111,.06);border-radius:12px;margin-bottom:10px}
+.sb2{height:5px;border-radius:3px;background:rgba(20,17,15,.06);overflow:hidden;margin:6px 0}
+.sf2{height:100%;border-radius:3px;transition:width .8s}
+.ac2{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.ac2 button{width:100%;padding:13px;border-radius:10px;border:none;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s}
+.ac2 button:active{transform:scale(.97)}
+.bp2{background:linear-gradient(135deg,#f4a261,#e07a5f);color:#fff;box-shadow:0 4px 14px rgba(224,122,95,.2)}
+.bss{background:transparent;color:#9a8a78;border:1px solid rgba(20,17,15,.08)}
+.br2{display:flex;align-items:center;gap:14px;padding:14px;margin-top:6px;border-radius:12px;background:rgba(255,255,255,.6);border:1px solid rgba(20,17,15,.08)}
+.br2 img{width:120px;height:auto;border-radius:8px;flex-shrink:0;border:2px solid rgba(20,17,15,.12)}
+.br2 .bn2{font-size:13px;font-weight:700;color:#14110f}
+.br2 .bs3{font-size:11px;color:#9a8a78;margin-top:1px}
+.ft2{font-size:10px;color:#c0b0a0;text-align:center;margin-top:14px;line-height:1.6}
+</style>
+</head><body>
+<div class="pg"></div>
+<div class="ap" id="ap"></div>
+<script>
+var D={e:"🔧",t:"挽回 ISTP 挑战",s:"你能靠近那个不想被盘问的人吗？",i:"ISTP曾经很亮，但热情不是无限电池。被困住被敷衍被降温，都会让TA突然转身。",n:"热烈逃逸",pr:"1.2%",ad:"第3关",gb:275864};
+var S=[{t:"回应变淡",s:"以前ISTP回你消息很快，现在经常隔很久才回几个字。你问TA是不是很忙，TA说还好。",l:"嗯，看到了。",d:25},{t:"不再主动",s:"你发现ISTP不再主动找你聊天了。以前TA会分享生活，现在你等一天也等不到一条消息。",l:"还好。",d:42},{t:"越来越敷衍",s:"ISTP开始用短句回复你。以前TA会认真回应，现在只剩"嗯""哦""知道了"。",l:"哦那随便吧。",d:53},{t:"你的话TA不听",s:"你跟ISTP讲道理想解决问题，但TA只是沉默。ISTP最怕被强迫接受观点，越说越推越远。",l:"你说是就是吧。",d:61},{t:"开始躲你",s:"你约ISTP出来TA找借口推掉。以前你们常出去，现在TA宁愿一个人待着。",l:"最近有点忙。",d:68},{t:"TA说累了",s:"你问ISTP到底想怎样，ISTP说不知道。TA不是敷衍你，是真的在困惑这段关系的意义。",l:"我也不知道我想要什么。",d:73},{t:"朋友比你懂TA",s:"你发现ISTP有心事先跟别人说而不是你。你从别人口中才知道TA最近的烦恼。",l:"跟朋友聊过了。",d:78},{t:"你踩了TA的底线",s:"你做了一件让ISTP很失望的事。TA没有大吵大闹，但你看得出来TA心里给你记了一笔。",l:"你根本不理解我。",d:82},{t:"TA开始回避",s:"你想跟ISTP好好沟通，但TA说不想聊。TA把自己关在壳里不让任何人靠近。",l:"不想说这个了。",d:86},{t:"心门关上",s:"ISTP说想一个人待着。不是气话，是真的需要空间来重新思考你们的关系。",l:"你让我静一静。",d:90},{t:"最后的客气",s:"ISTP突然变得很客气。说话礼貌周到，但那种疏远感比争吵更让人心慌。",l:"谢谢你，真的。",d:94},{t:"最终的告别",s:"ISTP用平静的语气说了结束的话。没有吵架没有眼泪，就像在陈述一个已经想了很久的决定。",l:"我们就这样吧。",d:98}];
+var O=[[{x:"a",t:"你到底什么意思",s:"f"},{x:"b",t:"好我尊重你的想法",s:"s"},{x:"c",t:"冷战到底",s:"f"},{x:"d",t:"给TA空间不逼迫",s:"s"}],[{x:"a",t:"你变了",s:"f"},{x:"b",t:"我会等你想说的时候",s:"s"},{x:"c",t:"逼TA表态度",s:"f"},{x:"d",t:"理解比说服更重要",s:"s"}],[{x:"a",t:"冷战到底",s:"f"},{x:"b",t:"用行动证明我在意",s:"s"},{x:"c",t:"你怎么这么自私",s:"f"},{x:"d",t:"好我尊重你的想法",s:"s"}],[{x:"a",t:"逼TA表态度",s:"f"},{x:"b",t:"给TA空间不逼迫",s:"s"},{x:"c",t:"你到底什么意思",s:"f"},{x:"d",t:"我会等你想说的时候",s:"s"}],[{x:"a",t:"你怎么这么自私",s:"f"},{x:"b",t:"理解比说服更重要",s:"s"},{x:"c",t:"你变了",s:"f"},{x:"d",t:"用行动证明我在意",s:"s"}],[{x:"a",t:"你到底什么意思",s:"f"},{x:"b",t:"好我尊重你的想法",s:"s"},{x:"c",t:"冷战到底",s:"f"},{x:"d",t:"给TA空间不逼迫",s:"s"}],[{x:"a",t:"你变了",s:"f"},{x:"b",t:"我会等你想说的时候",s:"s"},{x:"c",t:"逼TA表态度",s:"f"},{x:"d",t:"理解比说服更重要",s:"s"}],[{x:"a",t:"冷战到底",s:"f"},{x:"b",t:"用行动证明我在意",s:"s"},{x:"c",t:"你怎么这么自私",s:"f"},{x:"d",t:"好我尊重你的想法",s:"s"}],[{x:"a",t:"逼TA表态度",s:"f"},{x:"b",t:"给TA空间不逼迫",s:"s"},{x:"c",t:"你到底什么意思",s:"f"},{x:"d",t:"我会等你想说的时候",s:"s"}],[{x:"a",t:"你怎么这么自私",s:"f"},{x:"b",t:"理解比说服更重要",s:"s"},{x:"c",t:"你变了",s:"f"},{x:"d",t:"用行动证明我在意",s:"s"}],[{x:"a",t:"你到底什么意思",s:"f"},{x:"b",t:"好我尊重你的想法",s:"s"},{x:"c",t:"冷战到底",s:"f"},{x:"d",t:"给TA空间不逼迫",s:"s"}],[{x:"a",t:"你变了",s:"f"},{x:"b",t:"我会等你想说的时候",s:"s"},{x:"c",t:"逼TA表态度",s:"f"},{x:"d",t:"理解比说服更重要",s:"s"}]];
+var R=[{e:"🎯",ti:"完美通关",su:"万里挑一",ta:"🌟天选之人",mi:9,c:"#f4a261",de:"你完全读懂了ISTP。你知道什么时候该靠近什么时候该给空间。不是因为你多会说话而是因为你真的看见了TA。"},{e:"😊",ti:"表现不错",su:"超过大多数人",ta:"✅高分通关",mi:6,c:"#8ecae6",de:"你本能地做出了很多正确选择。虽然偶尔踩雷但你懂ISTP最在意的——被看见被理解。"},{e:"😅",ti:"有点危险",su:"和大部分人一样",ta:"⚠️止步中段",mi:3,c:"#f39c12",de:"一些关键选择踩了ISTP的雷。他们最怕被敷衍被冷落。需学会在TA沉默时不要逼问。"},{e:"💔",ti:"挑战失败",su:"ISTP已经转身",ta:"❌再努力",mi:0,c:"#e74c3c",de:"ISTP的热情熄灭了。TA需要的是一个发光时不遮挡暗淡时不离开的人。"}];
+var cu=0,s1=0,s2=0,f2=0;
+var A=document.getElementById("ap");
+function hm(){A.innerHTML="<div class=\"tb\"><span>挽回挑战</span><span>"+D.n+"</span></div><div class=\"he\"><div class=\"hi\"><div class=\"h2\">"+D.e+"</div><div class=\"h3\">"+D.t+"</div><div class=\"h4\">"+D.s+"</div><div class=\"h5\">"+D.i+"</div><div class=\"h6\"><span>🔥"+D.pr+"通关</span><span>💀平均"+D.ad+"</span></div></div></div><button class=\"bt\" onclick=\"go()\" style=\"text-align:center;padding:14px;font-weight:700;border-color:#f4a261\"><span class=\"il2 b1\">▶</span>开始挑战</button><div style=\"margin-top:12px\">"+br()+"</div><div class=\"ft2\">共"+S.length+"关·每关4个选择</div>";}
+function go(){cu=0;s1=0;s2=0;f2=0;A.innerHTML=lv();}
+function lv(){if(cu>=S.length)return re();var s=S[cu],o=O[cu]||[],bs=["b1","b2","b3","b4"];return "<div class=\"tb\"><span>挽回ISTP·第"+(cu+1)+"/"+S.length+"关</span><span>💀失败率"+s.d+"%</span></div><div class=\"ca\"><div class=\"la\"><span class=\"lb2\">⚠️关卡"+(cu+1)+"："+s.t+"</span><span class=\"ld2\">💀"+s.d+"%止步</span></div><div class=\"ls2\">"+s.s+"</div><div class=\"ll2\">\""+s.l+"\"</div><div class=\"op\">"+o.map(function(p,i){return "<button class=\"bt\" onclick=\"pk("+i+")\"><span class=\"il2 "+bs[i]+"\">"+"ABCD"[i]+"</span>"+p.t+"</button>";}).join("")+"</div></div>";}
+function pk(i){var o=O[cu][i];if(o.s==="s"){s1+=3;s2++}else{s1+=1;f2++}cu++;A.innerHTML=cu>=S.length?re():lv();}
+function re(){var r=R.find(function(x){return s2>=x.mi;})||R[R.length-1];return "<div class=\"tb\"><span>挑战完成</span><span>得分"+s1+"</span></div><div class=\"ca\" style=\"text-align:center\"><div class=\"re2\">"+r.e+"</div><div class=\"rt2\">"+r.ti+"</div><div class=\"rs\">"+r.su+"</div><div class=\"rb2\" style=\"background:"+r.c+"20;color:"+r.c+"\">"+r.ta+"</div></div><div class=\"ca\"><div class=\"rd2\">"+r.de+"</div><div style=\"font-size:12px;color:#9a8a78;margin-bottom:4px\">安全选择比例</div><div class=\"sb2\"><div class=\"sf2\" style=\"width:"+(s2/S.length*100)+"%;background:"+r.c+"\"></div></div><div style=\"display:flex;justify-content:space-between;font-size:11px;color:#9a8a78;margin-top:10px\"><span>🌍"+(D.gb/10000).toFixed(1)+"万人挑战</span><span>"+s2+"✅"+f2+"💀</span></div></div><div class=\"ac2\"><button class=\"bp2\" onclick=\"cap()\">📸截图发朋友圈</button><button class=\"bss\" onclick=\"hm()\">🔄重新挑战</button></div>"+br()+"<div class=\"ft2\">仅供娱乐·不构成人格建议<br>想自己搭这种测试？扫码找灵客星球</div>";}
+function br(){return "<div class=\"br2\"><img src=\"qrcode.jpg\"/><div><div class=\"bn2\">灵客星球</div><div class=\"bs3\">想自己搭这种测试？扫码聊聊</div></div></div>";}
+function cap(){if(typeof html2canvas==="undefined"){var b=document.querySelector(".bp2");if(b){b.textContent="📱请手动截图保存";b.style.background="#2ecc71";}return}try{html2canvas(document.querySelector(".ap"),{backgroundColor:"#faf6ef",scale:2,useCORS:true,logging:false}).then(function(c){var l=document.createElement("a");l.download="ISTP挑战结果.png";l.href=c.toDataURL("image/png");l.click();var b=document.querySelector(".bp2");if(b){b.textContent="✅图片已生成快去发朋友圈吧！";b.style.background="#2ecc71";}})}catch(e){}}
+hm();
+</script>
+</body>
+</html>
