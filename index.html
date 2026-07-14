@@ -148,9 +148,9 @@ function lv(){
   return `<div class="hp-bar"><span class="hp-icon">❤️</span><div class="hp-track"><div class="hp-fill ${hp>6?'green':hp>3?'yellow':'red'}" style="width:${(hp/maxHp)*100}%"></div></div><span class="hp-text">${hp}/${maxHp}</span></div>
     <div class="card fi"><div class="lv-hd"><span class="lv-name">⚠️ 第${cur+1}/${STAGES.length}关</span><span class="lv-death">💀 选错 -${s.dmg}HP</span></div>
     <div class="lv-scene">${s.scene}</div><div class="lv-line">"${s.line}"</div><div class="opts">
-    <button class="opt" onclick="pk(0)"><span class="il s1">A</span>${s.safe===1?'✅ 真诚回应TA的感受':'💬 说"我理解你"'}
-    <button class="opt" onclick="pk(1)"><span class="il s2">B</span>${s.safe===2?'✅ 给TA空间不打扰':'💬 追问TA到底怎么想的'}
-    <button class="opt" onclick="pk(2)"><span class="il s3">C</span>${s.safe===3?'✅ 用行动证明你在意':'💬 争辩解释你没错'}
+	    <button class="opt" onclick="pk(0)"><span class="il s1">A</span>A选项</button>
+	    <button class="opt" onclick="pk(1)"><span class="il s2">B</span>B选项</button>
+	    <button class="opt" onclick="pk(2)"><span class="il s3">C</span>C选项</button>
     <button class="opt" onclick="pk(3)"><span class="il s4">D</span>选项D</button>
     </div></div>`;
 }
