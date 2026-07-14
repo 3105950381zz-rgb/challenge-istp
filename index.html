@@ -190,17 +190,18 @@ function end(){
 }
 
 function cap(){
-  if(typeof html2canvas==='undefined'){alert('请手动截图保存');return}
+  if(typeof html2canvas==='undefined'){alert('请截图保存');return}
   const el=document.querySelector('.card');
   if(!el)return;
-  html2canvas(el,{backgroundColor:'#080a0a',scale:2,useCORS:true,logging:false}).then(c=>{
-    const link=document.createElement('a');
-    link.download='ISTP_通关.png';
-    link.href=c.toDataURL('image/png');
-    // For mobile - open in new tab as fallback
-    const img=new Image();img.src=c.toDataURL('image/png');
-    const w=window.open('');w.document.write('<img src="'+img.src+'" style="max-width:100%"/><p style="text-align:center;font-family:sans-serif">👆 长按图片保存</p>');
-  }).catch(()=>{alert('截图失败，请手动截图')});
+  html2canvas(el,{backgroundColor:'#f5f0ea',scale:2,useCORS:true,logging:false}).then(function(c){
+    const w=window.open('','_blank');
+    if(w){
+      w.document.write('<div style="padding:30px 16px;text-align:center;font-family:sans-serif;background:#f5f0ea;min-height:100vh;box-sizing:border-box">');
+      w.document.write('<img src="'+c.toDataURL('image/png')+'" style="max-width:100%;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.08)"/>');
+      w.document.write('<p style="margin-top:20px;color:#666;font-size:14px">👆 长按图片保存到手机</p>');
+      w.document.write('</div>');
+    }
+  }).catch(function(){alert('截图失败请手动截图')});
 }
 
 hm();
