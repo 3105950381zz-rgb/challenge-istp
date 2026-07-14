@@ -151,7 +151,7 @@ function lv(){
     <button class="opt" onclick="pk(0)"><span class="il s1">A</span>${s.safe===1?'✅ 真诚回应TA的感受':'💬 说"我理解你"'}
     <button class="opt" onclick="pk(1)"><span class="il s2">B</span>${s.safe===2?'✅ 给TA空间不打扰':'💬 追问TA到底怎么想的'}
     <button class="opt" onclick="pk(2)"><span class="il s3">C</span>${s.safe===3?'✅ 用行动证明你在意':'💬 争辩解释你没错'}
-    <button class="opt" onclick="pk(3)"><span class="il s4">D</span>💬 沉默等TA先开口'}
+    <button class="opt" onclick="pk(3)"><span class="il s4">D</span>选项D</button>
     </div></div>`;
 }
 
@@ -196,7 +196,7 @@ function cap(){
   html2canvas(el,{backgroundColor:'#f5f0ea',scale:2,useCORS:true,logging:false}).then(function(c){
     const w=window.open('','_blank');
     if(w){
-      w.document.write('<div style="padding:30px 16px;text-align:center;font-family:sans-serif;background:#f5f0ea;min-height:100vh;box-sizing:border-box">');
+      w.document.write('<div style="padding:30px 16px;text-align:center;font-family:sans-serif;background:#f5f0ea;min-height:100vh">');
       w.document.write('<img src="'+c.toDataURL('image/png')+'" style="max-width:100%;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.08)"/>');
       w.document.write('<p style="margin-top:20px;color:#666;font-size:14px">👆 长按图片保存到手机</p>');
       w.document.write('</div>');
