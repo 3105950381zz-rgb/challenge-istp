@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>挽回 ISTP 挑战</title>
+<title>挽回 ENFP 挑战</title>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#080a0a;color:#f0ece4;min-height:100vh;overflow-x:hidden}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#1a1218;color:#f0ece4;min-height:100vh;overflow-x:hidden}
 
 /* Animated bg */
-.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 30% 20%,rgba(254,202,87,.08),transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(224,122,95,.04),transparent 50%),#080a0a}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 30% 20%,rgba(254,202,87,.08),transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(224,122,95,.04),transparent 50%),#1a1218}
 .particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
 .p{position:absolute;width:2px;height:2px;background:rgba(254,202,87,.2);border-radius:50%;animation:drift linear infinite}
 @keyframes drift{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) scale(1);opacity:0}}
@@ -23,8 +23,8 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#080a0a;c
 
 /* ===== HEADER ===== */
 .hd{text-align:center;padding:32px 20px 20px;position:relative}
-.hd-badge{display:inline-block;padding:3px 12px;border-radius:6px;font-size:10px;font-weight:600;background:rgba(244,162,97,.1);color:#636e72;letter-spacing:1px;margin-bottom:10px;border:1px solid rgba(244,162,97,.15)}
-.hd h1{font-size:28px;font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,#f0ece4,#636e72);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hd-badge{display:inline-block;padding:3px 12px;border-radius:6px;font-size:10px;font-weight:600;background:rgba(244,162,97,.1);color:#feca57;letter-spacing:1px;margin-bottom:10px;border:1px solid rgba(244,162,97,.15)}
+.hd h1{font-size:28px;font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,#f0ece4,#feca57);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hd p{font-size:12px;color:rgba(240,236,228,.3);margin-top:6px}
 
 .ct{max-width:480px;margin:0 auto;padding:0 14px 30px}
@@ -41,14 +41,14 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#080a0a;c
 /* ===== BUTTON ===== */
 .btn{width:100%;padding:14px;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
 .btn:active{transform:scale(.97)}
-.btn-primary{background:linear-gradient(135deg,#636e72,#dfe6e9);color:#fff;box-shadow:0 4px 20px rgba(254,202,87,.2)}
+.btn-primary{background:linear-gradient(135deg,#feca57,#ff9ff3);color:#fff;box-shadow:0 4px 20px rgba(254,202,87,.2)}
 .btn-primary:hover{box-shadow:0 6px 28px rgba(244,162,97,.3)}
 .btn-second{background:rgba(255,255,255,.03);color:rgba(240,236,228,.4);border:1px solid rgba(255,255,255,.06)}
 .btn-danger{background:linear-gradient(135deg,#e94560,#c23152);color:#fff}
 
 /* ===== CARD ===== */
 .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:20px;margin-bottom:10px;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#636e72,transparent);opacity:.5}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#feca57,transparent);opacity:.5}
 
 /* HP BAR */
 .hp-bar{display:flex;align-items:center;gap:10px;margin-bottom:14px}
@@ -74,7 +74,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#080a0a;c
 .opt:hover{border-color:rgba(254,202,87,.2);background:rgba(254,202,87,.04)}
 .opt:active{transform:scale(.97)}
 .opt .il{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:8px;font-size:10px;font-weight:700;margin-right:10px;color:#fff}
-.opt .s1{background:#636e72}.opt .s2{background:#dfe6e9}.opt .s3{background:#d4af37}.opt .s4{background:#8ecae6}
+.opt .s1{background:#feca57}.opt .s2{background:#ff9ff3}.opt .s3{background:#d4af37}.opt .s4{background:#8ecae6}
 
 .opt.wrong{animation:shake .5s;border-color:#e94560;background:rgba(233,69,96,.08)!important}
 .opt.right{border-color:#4caf50;background:rgba(76,175,80,.08)!important}
@@ -90,8 +90,8 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#080a0a;c
 
 /* ===== WIN ===== */
 .win-icon{font-size:72px;margin-bottom:10px;display:block}
-.win-title{font-size:24px;font-weight:800;color:#636e72;margin-bottom:4px}
-.win-desc{font-size:13px;color:rgba(240,236,228,.4);line-height:1.8;padding:16px;background:rgba(254,202,87,.04);border-radius:12px;margin-bottom:16px;border-left:2px solid #636e72}
+.win-title{font-size:24px;font-weight:800;color:#feca57;margin-bottom:4px}
+.win-desc{font-size:13px;color:rgba(240,236,228,.4);line-height:1.8;padding:16px;background:rgba(254,202,87,.04);border-radius:12px;margin-bottom:16px;border-left:2px solid #feca57}
 .win-stats{display:flex;gap:10px;justify-content:center;margin-bottom:16px}
 .win-stats span{padding:6px 14px;border-radius:8px;font-size:12px}
 .win-stats .s{background:rgba(76,175,80,.1);color:#66bb6a}
@@ -111,7 +111,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#080a0a;c
 
 <div class="hd">
   <div class="hd-badge">✦ 闯关挑战</div>
-  <h1>挽回 ISTP</h1>
+  <h1>挽回 ENFP</h1>
   <p>你能闯到第几关？</p>
 </div>
 
@@ -125,12 +125,12 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#080a0a;c
 })();
 
 const DATA={
-  emoji:'🔧',title:'ISTP',subtitle:'不喜欢被盘问的自由人',
-  desc:'ISTP 曾经很亮，但热情不是无限电池。被困住、被敷衍、被降温，都会让 TA 突然转身。',
-  color:'#636e72'
+  emoji:'🐶',title:'ENFP',subtitle:'热情自由的追梦者',
+  desc:'ENFP 曾经很亮，但热情不是无限电池。被困住、被敷衍、被降温，都会让 TA 突然转身。',
+  color:'#feca57'
 };
 
-const STAGES=[{scene:'TA回消息的热情明显降温了以前秒回现在轮回',line:'第1关',safe:1,dmg:1,death:'嫌TA话多TA说找安静的去然后安静了'},{scene:'TA以前做什么都拉着你现在说我自己去就好',line:'第2关',safe:2,dmg:1,death:'不陪TA去TA自己去了笑得更开心'},{scene:'你在说TA在玩手机你说你听了吗TA重复了你的话',line:'第3关',safe:3,dmg:2,death:'重复了你的话你以为在听其实在走神'},{scene:'TA发了一条在外面玩得很开心的朋友圈但你不知道TA去了哪',line:'第4关',safe:4,dmg:2,death:'你知道TA去哪的时候TA已经不需要告诉你了'},{scene:'你问TA去哪玩TA说随便但那份随便里没有商量只有无所谓',line:'第5关',safe:1,dmg:2,death:'随便到不想跟你说话了因为每一句都被反驳'},{scene:'TA依然在笑但笑没到眼睛',line:'第6关',safe:2,dmg:3,death:'表演快乐真的很累然后不想演了'},{scene:'你又否定了TA的想法TA说算了不说了',line:'第7关',safe:3,dmg:3,death:'你否定太多次TA决定再也不说了'},{scene:'TA的话题里我们越来越少你和TA的朋友们越来越多',line:'第8关',safe:4,dmg:4,death:'你发现TA没有你也过得很好'},{scene:'TA的朋友圈没有你了话题也没有你了',line:'第9关',safe:1,dmg:4,death:'你不在故事里了'},{scene:'TA说想找回自己你说那你找个新的吧TA沉默',line:'第10关',safe:2,dmg:4,death:'你说找个新的TA说好然后你没了'},{scene:'你又泼了冷水TA这次没争辩只是收回手',line:'第11关',safe:3,dmg:5,death:'收回手那次是最后一次'},{scene:'TA说我们好像不太一样了',line:'第12关',safe:4,dmg:5,death:'你说对不一样TA说终于你也这么觉得了'}];
+const STAGES=[{scene:'TA回消息热情降温以前秒回现在轮回',line:'1',safe:1,dmg:1,death:'嫌TA话多TA安静到不再跟你说'},{scene:'TA做什么都拉着你现在说自己去就好',line:'2',safe:2,dmg:1,death:'不陪TA去TA自己去笑更开心'},{scene:'你在说TA在玩手机TA重复你的话',line:'3',safe:3,dmg:2,death:'重复你话其实在走神'},{scene:'TA发快乐朋友圈但你不知道TA在哪',line:'4',safe:4,dmg:2,death:'你知道时TA已不需要告诉你了'},{scene:'你问去哪玩TA说随便但随便里没有温度',line:'5',safe:1,dmg:2,death:'随便到最后不说了'},{scene:'TA依然在笑但笑没到眼睛',line:'6',safe:2,dmg:3,death:'表演快乐太累不演了'},{scene:'你又否定TA的想法TA说算了不说了',line:'7',safe:3,dmg:3,death:'否定太多TA不说了'},{scene:'TA的话题变少你的名字变淡',line:'8',safe:4,dmg:4,death:'你发现TA没你过得很好'},{scene:'TA的社交没你了话题也没你了',line:'9',safe:1,dmg:4,death:'你不在故事里了'},{scene:'TA说想找回自己你说新的吗TA沉默',line:'10',safe:2,dmg:4,death:'你说找新的TA说好然后你没了'},{scene:'你习惯性泼冷水TA收回伸出的手',line:'11',safe:3,dmg:5,death:'那是最后一次伸手'},{scene:'TA说我们好像不太一样了',line:'12',safe:4,dmg:5,death:'不一样TA说终于你也觉得了'}];
 
 let hp=10,maxHp=10,cur=0,sc=0,over=false;
 const A=document.getElementById('app');
@@ -148,10 +148,10 @@ function lv(){
   return `<div class="hp-bar"><span class="hp-icon">❤️</span><div class="hp-track"><div class="hp-fill ${hp>6?'green':hp>3?'yellow':'red'}" style="width:${(hp/maxHp)*100}%"></div></div><span class="hp-text">${hp}/${maxHp}</span></div>
     <div class="card fi"><div class="lv-hd"><span class="lv-name">⚠️ 第${cur+1}/${STAGES.length}关</span><span class="lv-death">💀 选错 -${s.dmg}HP</span></div>
     <div class="lv-scene">${s.scene}</div><div class="lv-line">"${s.line}"</div><div class="opts">
-	    <button class="opt" onclick="pk(0)"><span class="il s1">A</span>A选项</button>
-	    <button class="opt" onclick="pk(1)"><span class="il s2">B</span>B选项</button>
-	    <button class="opt" onclick="pk(2)"><span class="il s3">C</span>C选项</button>
-    <button class="opt" onclick="pk(3)"><span class="il s4">D</span>选项D</button>
+<button class="opt" onclick="pk(0)"><span class="il s1">A</span>追问TA为什么不回消息</button>
+<button class="opt" onclick="pk(1)"><span class="il s2">B</span>分享有趣的事重新吸引TA</button>
+<button class="opt" onclick="pk(2)"><span class="il s3">C</span>冷战等TA主动找你</button>
+<button class="opt" onclick="pk(3)"><span class="il s4">D</span>发一段真心话给TA</button>
     </div></div>`;
 }
 
@@ -183,10 +183,10 @@ function pk(i){
 
 function end(){
   if(over||hp<=0){
-    return `<div class="go-screen fi"><div class="go-icon">💀</div><div class="go-title">闯关失败</div><div class="go-sub">你在第${Math.max(1,cur)}关倒下了</div><div class="go-desc">${STAGES[Math.min(cur,STAGES.length-1)].death||'ISTP已经彻底离开了你的世界。'}</div><div class="go-stats"><span>❤️ HP归零</span><span>🏆 闯到第${Math.max(1,cur)}关</span></div><button class="btn btn-danger" onclick="go()">🔄 重新挑战</button></div>`;
+    return `<div class="go-screen fi"><div class="go-icon">💀</div><div class="go-title">闯关失败</div><div class="go-sub">你在第${Math.max(1,cur)}关倒下了</div><div class="go-desc">${STAGES[Math.min(cur,STAGES.length-1)].death||'ENFP已经彻底离开了你的世界。'}</div><div class="go-stats"><span>❤️ HP归零</span><span>🏆 闯到第${Math.max(1,cur)}关</span></div><button class="btn btn-danger" onclick="go()">🔄 重新挑战</button></div>`;
   }
   // Win
-  return `<div class="card fi" style="text-align:center;padding:30px"><span class="win-icon">🎉</span><div class="win-title">恭喜通关！</div><div style="font-size:12px;color:rgba(240,236,228,.3);margin:4px 0 14px">你成功挽回了ISTP的心</div><div class="win-desc">你完全读懂了ISTP。你知道什么时候该靠近、什么时候该给空间。不是因为你多会说话，而是因为你真的看见了TA。TA选择了回来。</div><div class="win-stats"><span class="s">❤️ HP剩余 ${hp}</span><span class="f">💀 失误 ${STAGES.length-cur}</span></div><button class="btn btn-primary" onclick="cap()">📸 保存战绩发朋友圈</button><div style="height:8px"></div><button class="btn btn-second" onclick="go()">🔄 重新挑战</button></div>`;
+  return `<div class="card fi" style="text-align:center;padding:30px"><span class="win-icon">🎉</span><div class="win-title">恭喜通关！</div><div style="font-size:12px;color:rgba(240,236,228,.3);margin:4px 0 14px">你成功挽回了ENFP的心</div><div class="win-desc">你完全读懂了ENFP。你知道什么时候该靠近、什么时候该给空间。不是因为你多会说话，而是因为你真的看见了TA。TA选择了回来。</div><div class="win-stats"><span class="s">❤️ HP剩余 ${hp}</span><span class="f">💀 失误 ${STAGES.length-cur}</span></div><button class="btn btn-primary" onclick="cap()">📸 保存战绩发朋友圈</button><div style="height:8px"></div><button class="btn btn-second" onclick="go()">🔄 重新挑战</button></div>`;
 }
 
 function cap(){
