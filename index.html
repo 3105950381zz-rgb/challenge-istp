@@ -121,27 +121,7 @@ const DATA={
   winDesc:'你给了ISTP需要的自由和空间。你没有追问、没有控制、没有情绪绑架。TA发现你是那个例外——跟你在一起不会窒息。所以TA选择了回来。'
 };
 
-const OPTIONS=[
-  '给TA自由不追问去向',
-  '帮TA解决一个实际的麻烦',
-  '情绪化逼TA给你表态',
-  '跟TA一起做件有趣的事'
-];
-
-const STAGES=[
-  {scene:'TA想自己出去兜风你说带上我',line:'想自己待会。',safe:1,death:'你说不放心 TA觉得被拴住了'},
-  {scene:'你问TA在想什么问了很多遍',line:'没什么。',safe:1,death:'你越问 TA越不想说 最后什么都不说'},
-  {scene:'TA修东西你在旁边一直指挥',line:'我来就好。',safe:2,death:'你说你这样不对 TA让你来 你也不会'},
-  {scene:'TA想去冒险你说太危险',line:'那算了。',safe:4,death:'算了 TA去了 但没带你'},
-  {scene:'你给TA发了很多消息问在干嘛',line:'在忙。',safe:1,death:'在忙不是没空是没空理你'},
-  {scene:'TA遇到问题你在旁边干着急',line:'我能处理。',safe:2,death:'你说我担心 TA说不需要担心需要帮忙'},
-  {scene:'TA想一个人去旅行',line:'想去走走。',safe:1,death:'你说一起去 TA说想一个人 包括一个人生活'},
-  {scene:'TA不再跟你分享有趣的事了',line:'没什么好说的。',safe:4,death:'没什么好说 因为跟你说了也不懂'},
-  {scene:'你在TA专注的时候打扰TA',line:'等一下。',safe:1,death:'你催 TA觉得你是干扰源'},
-  {scene:'TA的情绪不对你问怎么了',line:'没事。',safe:2,death:'你反复问 TA直接用行动解决 包括解决关系'},
-  {scene:'TA说你不懂TA的世界',line:'算了。',safe:4,death:'算了 TA回到自己的世界 不带你了'},
-  {scene:'TA已经懒得解释了',line:'就这样吧。',safe:1,death:'就这样吧 你和TA就这样了'}
-];
+const STAGES=[{scene:"TA想自己出去兜风你说带上我",line:"想自己待会。",options:["好你自己去注意安全","带上我吧我不说话","你是不是烦我了","那我等你回来"],safe:1,death:"你说不放心 TA觉得被拴住了"},{scene:"你问TA在想什么问了很多遍",line:"没什么。",options:["不问了你想说再说","你一定在想什么告诉我","你每次都这样闷着","你不想说我也陪着"],safe:1,death:"你越问 TA越不想说 最后什么都不说"},{scene:"TA修东西你在旁边一直指挥",line:"我来就好。",options:["好我不说了你修","你这样不对我来","你行你上不行别指挥","需要帮忙叫我"],safe:2,death:"你说你这样不对 TA让你来 你也不会"},{scene:"TA想去冒险你说太危险",line:"那算了。",options:["那你去吧注意安全我等你","确实太危险了别去了","我陪你去有什么事一起","你是不是觉得我扫兴了"],safe:4,death:"算了 TA去了 但没带你"},{scene:"你给TA发了很多消息问在干嘛",line:"在忙。",options:["好你先忙忙完找我","你在忙什么不告诉我","你每次都说在忙","我不打扰你你忙完理我"],safe:1,death:"在忙不是没空是没空理你"},{scene:"TA遇到问题你在旁边干着急",line:"我能处理。",options:["我相信你看着你处理","我帮你一起","你不需要我吗","你总是自己扛"],safe:2,death:"你说我担心 TA说不需要担心需要帮忙"},{scene:"TA想一个人去旅行",line:"想去走走。",options:["我跟你一起去路上有个照应","那你去吧我等你","你一个人去我不放心","你是不是想一个人静静"],safe:1,death:"你说一起去 TA说想一个人 包括一个人生活"},{scene:"TA不再跟你分享有趣的事了",line:"没什么好说的。",options:["你以前什么都会跟我说的","那我说我的事给你听","你觉得跟我分享没意思了","你是不是有别人分享了"],safe:4,death:"没什么好说 因为跟你说了也不懂"},{scene:"你在TA专注的时候打扰TA",line:"等一下。",options:["好我等你不急","我等你好久了还要等","你忙完了叫我","你能不能先理我一下"],safe:1,death:"你催 TA觉得你是干扰源"},{scene:"TA的情绪不对你问怎么了",line:"没事。",options:["你每次说没事就是有事","好没事就好","你不说我怎么知道","我给你做个吃的吧心情会好"],safe:2,death:"你反复问 TA直接用行动解决 包括解决关系"},{scene:"TA说你不懂TA的世界",line:"算了。",options:["你教我我学","我是不懂但我愿意懂","那你也不懂我","你的世界不愿意让我进"],safe:4,death:"算了 TA回到自己的世界 不带你了"},{scene:"TA已经懒得解释了",line:"就这样吧。",options:["就这样是怎样你说清楚","你不要每次都这样","你别走我们好好说","好就这样吧我走"],safe:1,death:"就这样吧 你和TA就这样了"}];
 
 let cur=0,over=false;
 const A=document.getElementById('app');
@@ -176,7 +156,7 @@ function lv(){
   if(over)return'';
   if(cur>=STAGES.length)return end();
   const s=STAGES[cur];
-  const optsHtml=OPTIONS.map((o,i)=>`<button class="opt" onclick="pk(${i})"><span class="il s${i+1}">${LABELS[i]}</span>${o}</button>`).join('');
+  const optsHtml=s.options.map((o,i)=>`<button class="opt" onclick="pk(${i})"><span class="il s${i+1}">${LABELS[i]}</span>${o}</button>`).join('');
   return `<div class="card fi">
     <div class="lv-hd">
       <span class="lv-name">⚠️ 第${cur+1}/${STAGES.length}关</span>
