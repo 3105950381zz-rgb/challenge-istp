@@ -273,6 +273,14 @@ function st(m){
 function cap(){
   if(navigator.share){
     navigator.share({title:'挽回'+DATA.title+'挑战',text:'我正在挑战【挽回'+DATA.title+'】你能闯到第几关？来试试吧 👇',url:window.location.href}).catch(function(){});
+  }else{
+    var e=document.createElement('textarea');
+    e.value='我正在挑战【挽回'+DATA.title+'】你能闯到第几关？来试试吧 👇 '+window.location.href;
+    e.style.position='fixed';e.style.opacity='0';
+    document.body.appendChild(e);e.select();
+    try{document.execCommand('copy')}catch(e){}
+    document.body.removeChild(e);
+    alert('已复制链接，请粘贴发送给好友');
   }
 }
 
