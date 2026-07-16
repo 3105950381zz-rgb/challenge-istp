@@ -261,26 +261,13 @@ function sh(){
   return '<div style="font-size:10px;color:rgba(240,236,228,.45);text-align:center;margin-top:5px;letter-spacing:.5px">💡 点右上角 <span style="border:1px solid rgba(240,236,228,.25);border-radius:3px;padding:0 6px;font-size:9px">···</span> 也可转发给好友</div>';
 }
 function share(){
-  const url=window.location.href;
-  const title='挽回'+DATA.title+'挑战';
-  const txt='我正在挑战【挽回'+DATA.title+'】！你能闯到第几关？来试试吧 👇';
-  if(window.WeixinJSBridge&&WeixinJSBridge.invoke){
-    try{WeixinJSBridge.invoke('shareAppMessage',{title:title,desc:txt,link:url,imgUrl:'',type:'link',data:{}})}catch(e){}
-    return;
-  }
-  if(navigator.share){
-    navigator.share({title:title,text:txt,url:url}).then(function(){st('✅ 分享成功')}).catch(function(){cp(url,txt)});
-    return;
-  }
-  cp(url,txt);
-}
-function cp(u,t){
-  var e=document.createElement('textarea');
-  e.value=t+' '+u;e.style.position='fixed';e.style.opacity='0';
+  const txt='我正在挑战【挽回'+DATA.title+'】！你能闯到第几关？来试试吧 👇 '+window.location.href;
+  const e=document.createElement('textarea');
+  e.value=txt;e.style.position='fixed';e.style.opacity='0';
   document.body.appendChild(e);e.select();
   try{document.execCommand('copy')}catch(e){}
   document.body.removeChild(e);
-  st('✅ 链接已复制，去转发给好友吧');
+  st('✅ 已复制，快去转发给好友吧');
 }
 function st(m){
   const t=document.getElementById('toast');
