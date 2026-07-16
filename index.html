@@ -127,7 +127,7 @@ const DATA={
   emoji:'🔧',title:'ISTP',subtitle:'随性自由的实干家',
   desc:'ISTP 需要自由和空间。你越抓越紧、越问越多，TA就越想逃。不是不爱你，是窒息感让TA本能地想挣脱。',
   color:'#f59e0b',qrSrc:'qrcode.jpg',
-  winDesc:'你给了ISTP需要的自由和空间。你没有追问、没有控制、没有情绪绑架。TA发现你是那个例外——跟你在一起不会窒息。所以TA选择了回来。',difficulty:'★★★★☆',diffLabel:'自由型 · 给空间比纠缠有用',dist:[100,75,56,40,28,18,10,6,3.5,1.5,0.5,0.2,0.1]};
+  winDesc:'你给了ISTP需要的自由和空间。你没有追问、没有控制、没有情绪绑架。TA发现你是那个例外——跟你在一起不会窒息。所以TA选择了回来。',difficulty:'★★★★☆',diffLabel:'自由型 · 给空间比纠缠有用',dist:[100,95,89,81,71,60,48,37,26,17,10,5,1.5]};
 
 const STAGES=[{scene:"TA想自己出去兜风你说带上我",line:"想自己待会。",options:["好 那你注意安全 到了跟我说一声","我带你去吧 我不吵你","你是不是嫌我烦了","我等你回来 想我了就找我"],safe:1,death:"你说不放心 TA觉得被拴住了"},{scene:"你问TA在想什么问了很多遍",line:"没什么。",options:["你肯定在想什么 你就告诉我嘛","好 不说就不说 你什么时候想说再跟我说","你是不是生我气了","不说拉倒 我还不稀罕知道呢"],safe:2,death:"你越问 TA越不想说 最后什么都不说"},{scene:"TA修东西你在旁边一直指挥",line:"我来就好。",options:["我怕你不会弄 想帮帮你","你每次都嫌我烦 我好心没好报","好 那你弄 我去给你拿点喝的","你会不会啊 要不要我来看一下"],safe:3,death:"你说你这样不对 TA让你来 你也不会"},{scene:"TA想去冒险你说太危险",line:"那算了。",options:["行 去就去 我跟着你你保护我就行","真的太危险了 换个安全点的吧","那你去吧 我在家等你","你要是有个三长两短怎么办"],safe:1,death:"算了 TA去了 但没带你"},{scene:"你给TA发了很多消息问在干嘛",line:"在忙。",options:["你在忙什么呀 跟我说说呗","你每次都忙 也不知道是不是不想理我","好吧你忙 但你别太久了","好 不吵你 忙完找我"],safe:4,death:"在忙不是没空是没空理你"},{scene:"TA遇到问题你在旁边干着急",line:"我能处理。",options:["你搞不定就让我来试试","需要帮忙就叫我一声 我就在旁边","你每次都自己扛 我看着好心疼","让我看看什么问题 说不定我懂"],safe:2,death:"你说我担心 TA说不需要担心需要帮忙"},{scene:"TA想一个人去旅行",line:"想去走走。",options:["想去就去 注意安全 到了跟我说一声","一个人去多没意思 我请假陪你去","你是不是想一个人待着 那我怎么办","你去吧 反正我在不在你都一样"],safe:1,death:"你说一起去 TA说想一个人 包括一个人生活"},{scene:"TA不再跟你分享有趣的事了",line:"没什么好说的。",options:["你这几天都不跟我说话了 我哪里做错了","你是不是有别人了才不想跟我聊","那等你想说了 我随时都在","你不说那我也不说了"],safe:3,death:"没什么好说 因为跟你说了也不懂"},{scene:"你在TA专注的时候打扰TA",line:"等一下。",options:["你等一下是多久 总要有个时间吧","好我等你 但你快点","你就不能先停一下听我说句话吗","好你先忙 我不急"],safe:4,death:"你催 TA觉得你是干扰源"},{scene:"TA的情绪不对你问怎么了",line:"没事。",options:["那我陪你坐会儿","你分明有事为什么要说没事","你不说我怎么帮你 你说啊","每次都说没事 我真的好累"],safe:1,death:"你反复问 TA直接用行动解决 包括解决关系"},{scene:"TA说你不懂TA的世界",line:"算了。",options:["你的世界就是不想让我进","那你教我 我想懂你","你说得对 我确实不懂你","不懂就不懂吧 谁稀罕懂"],safe:2,death:"算了 TA回到自己的世界 不带你了"},{scene:"TA已经懒得解释了",line:"就这样吧。",options:["别这样 我们再聊聊好不好","就这样吧 你说的","好 尊重你的决定 但我还是在这里","你每次都这样 算了算了"],safe:3,death:"就这样吧 你和TA就这样了"}];
 
@@ -137,7 +137,7 @@ const LABELS=['A','B','C','D'];
 const SK='mbti_wb';
 function ls(){try{return JSON.parse(localStorage.getItem(SK))||{}}catch(e){return{}}}
 function sv(t,l,w){const a=ls();if(!a[t]||a[t].best<l){a[t]={best:l,won:w,date:Date.now()}}a[t].plays=(a[t].plays||0)+1;localStorage.setItem(SK,JSON.stringify(a))}
-function pct(l){const d=DATA.dist;return Math.round((d[Math.min(l,d.length-1)]||0)*10)/10}
+function pct(l){return Math.round((100-(d[Math.min(Math.max(l-1,0),d.length-1)]||0))*10)/10}
 function statsHTML(level){
   const p=pct(level);
   return '<div class="stats-box">'
