@@ -137,7 +137,7 @@ const LABELS=['A','B','C','D'];
 const SK='mbti_wb';
 function ls(){try{return JSON.parse(localStorage.getItem(SK))||{}}catch(e){return{}}}
 function sv(t,l,w){const a=ls();if(!a[t]||a[t].best<l){a[t]={best:l,won:w,date:Date.now()}}a[t].plays=(a[t].plays||0)+1;localStorage.setItem(SK,JSON.stringify(a))}
-function pct(l){return Math.round((100-(d[Math.min(Math.max(l-1,0),d.length-1)]||0))*10)/10}
+function pct(l){const d=DATA.dist;return Math.round((100-(d[Math.min(Math.max(l-1,0),d.length-1)]||0))*10)/10}
 function statsHTML(level){
   const p=pct(level);
   return '<div class="stats-box">'
