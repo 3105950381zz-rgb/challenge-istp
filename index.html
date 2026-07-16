@@ -275,25 +275,18 @@ function cap(){
   var el=document.getElementById('capArea');
   if(!el)return;
   try{
-    html2canvas(el,{scale:2,useCORS:true,logging:false,backgroundColor:'#0f0f0f',
-      onclone:function(d){
-        var e=d.getElementById('capArea');
-        if(!e)return;
-        e.style.width='360px';e.style.margin='0 auto';e.style.padding='16px';
-        var b=e.querySelectorAll('button');
-        for(var i=0;i<b.length;i++)b[i].style.display='none';
-        var p=e.querySelector('.stats-pct');
-        if(p){p.style.color='#feca57';p.style.webkitTextFillColor='#feca57';p.style.background='none'}
-      }
-    }).then(function(c){
-      var u=c.toDataURL('image/jpeg',0.8);
+    var btns=el.querySelectorAll('button');
+    for(var i=0;i<btns.length;i++)btns[i].style.visibility='hidden';
+    html2canvas(el,{scale:2,useCORS:true,logging:false,backgroundColor:null,allowTaint:true}).then(function(c){
+      for(var i=0;i<btns.length;i++)btns[i].style.visibility='';
+      var u=c.toDataURL('image/png');
       var o=document.createElement('div');
-      o.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:rgba(0,0,0,.92);text-align:center;overflow-y:auto;-webkit-overflow-scrolling:touch';
-      o.innerHTML='<div style="color:#fff;font-size:15px;padding:40px 20px 10px;letter-spacing:1px;line-height:1.8">👆 长按图片保存</div>'
-        +'<img src="'+u+'" style="max-width:100%;width:320px;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.5);display:inline-block">'
-        +'<div style="padding:20px"><button onclick="this.parentNode.parentNode.remove()" style="padding:10px 40px;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:rgba(255,255,255,.05);color:#fff;font-size:14px;font-family:inherit">✕ 关闭</button></div>';
+      o.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:#000;text-align:center;overflow-y:auto';
+      o.innerHTML='<div style="color:#fff;font-size:15px;padding:40px 20px 10px">👆 长按图片保存</div>'
+        +'<img src="'+u+'" style="max-width:100%;width:320px;display:inline-block">'
+        +'<div style="padding:20px"><button onclick="document.body.removeChild(this.parentNode.parentNode)" style="padding:10px 40px;border:1px solid rgba(255,255,255,.2);border-radius:8px;background:0 0;color:#fff;font-size:14px;font-family:inherit">✕ 关闭</button></div>';
       document.body.appendChild(o);
-    }).catch(function(){st('截图失败请手动截图')});
+    }).catch(function(e){console.log(e);st('截图失败请手动截图')});
   }catch(e){st('截图失败请手动截图')}
 }
 
