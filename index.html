@@ -232,7 +232,7 @@ function end(){
       <div class="go-desc">${s.death}</div>
 <button class="btn btn-danger" onclick="go()">🔄 再试一次</button>
       <div style="height:6px"></div>
-      <button class="btn btn-primary" onclick="cap()">📸 保存结果分享</button>
+      <button class="btn btn-primary" onclick="cap()">📤 分享给好友</button>
 <div class="go-qr"><img src="${DATA.qrSrc}" alt="扫码"/></div>
       
       <div class="go-brand">灵客星球</div></div>`;
@@ -244,7 +244,7 @@ function end(){
     <div style="font-size:11px;color:rgba(240,236,228,.6);margin:2px 0 8px">你成功挽回了${DATA.title}的心</div>
     ${statsHTML(STAGES.length)}
     <div class="win-desc">${DATA.winDesc}</div>
-    <button class="btn btn-primary" onclick="cap()">📸 保存结果分享</button>
+    <button class="btn btn-primary" onclick="cap()">📤 分享给好友</button>
     <div style="height:6px"></div>
     <button class="btn btn-second" onclick="go()">🔄 再测一次</button>
     <div class="win-qr"><img src="${DATA.qrSrc}" alt="扫码"/></div>
@@ -271,23 +271,9 @@ function st(m){
 }
 
 function cap(){
-  if(typeof html2canvas==='undefined'){st('请手动截图');return}
-  var el=document.getElementById('capArea');
-  if(!el)return;
-  try{
-    var btns=el.querySelectorAll('button');
-    for(var i=0;i<btns.length;i++)btns[i].style.visibility='hidden';
-    html2canvas(el,{scale:2,useCORS:true,logging:false,backgroundColor:null,allowTaint:true}).then(function(c){
-      for(var i=0;i<btns.length;i++)btns[i].style.visibility='';
-      var u=c.toDataURL('image/png');
-      var o=document.createElement('div');
-      o.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:#000;text-align:center;overflow-y:auto';
-      o.innerHTML='<div style="color:#fff;font-size:15px;padding:40px 20px 10px">👆 长按图片保存</div>'
-        +'<img src="'+u+'" style="max-width:100%;width:320px;display:inline-block">'
-        +'<div style="padding:20px"><button onclick="document.body.removeChild(this.parentNode.parentNode)" style="padding:10px 40px;border:1px solid rgba(255,255,255,.2);border-radius:8px;background:0 0;color:#fff;font-size:14px;font-family:inherit">✕ 关闭</button></div>';
-      document.body.appendChild(o);
-    }).catch(function(e){console.log(e);st('截图失败请手动截图')});
-  }catch(e){st('截图失败请手动截图')}
+  if(navigator.share){
+    navigator.share({title:'挽回'+DATA.title+'挑战',text:'我正在挑战【挽回'+DATA.title+'】你能闯到第几关？来试试吧 👇',url:window.location.href}).catch(function(){});
+  }
 }
 
 hm();
