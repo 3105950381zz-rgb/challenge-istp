@@ -81,7 +81,7 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#1a150e;c
 /* ===== WIN ===== */
 .win-screen{text-align:center;padding:12px 0}
 .win-icon{font-size:44px;margin-bottom:4px;display:block}
-.win-title{font-size:18px;font-weight:800;color:;margin-bottom:px}
+.win-title{font-size:18px;font-weight:800;margin-bottom:2px}
 .win-desc{font-size:12px;color:rgba(240,236,228,.4);line-height:1.8;padding:16px;background:rgba(245,158,11,.04);border-radius:12px;margin-bottom:16px;border-left:2px solid #f59e0b}
 .win-qr{width:72px;height:72px;border-radius:6px;overflow:hidden;margin:4px auto 0}
 .win-qr img{width:100%;height:100%;object-fit:cover;display:block;border-radius:6px}
@@ -271,31 +271,30 @@ function st(m){
 }
 
 function cap(){
-  if(typeof html2canvas==='undefined'){st('⚠️ 请手动截图');return}
+  if(typeof html2canvas==='undefined'){st('请手动截图');return}
   var el=document.getElementById('capArea');
   if(!el)return;
   try{
-    var c=el.cloneNode(true);
-    c.style.cssText='width:360px;padding:20px 16px;background:#0f0f0f;border-radius:16px;text-align:center;font-family:PingFang SC,Microsoft YaHei,sans-serif;color:#f0ece4';
-    var btns=c.querySelectorAll('button');
-    for(var i=0;i<btns.length;i++)btns[i].style.display='none';
-    var pct=c.querySelector('.stats-pct');
-    if(pct)pct.style.cssText='font-size:12px;font-weight:800;color:#feca57';
-    c.style.position='fixed';c.style.left='-9999px';c.style.top='0';
-    document.body.appendChild(c);
-    html2canvas(c,{scale:2,useCORS:true,logging:false,backgroundColor:'#0f0f0f'}).then(function(canvas){
-      document.body.removeChild(c);
-      showImg(canvas.toDataURL('image/png'));
-    }).catch(function(){st('⚠️ 截图失败请手动截图');try{document.body.removeChild(c)}catch(e){}});
-  }catch(e){st('⚠️ 截图失败请手动截图')}
-}
-function showImg(u){
-  var o=document.createElement('div');
-  o.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:rgba(0,0,0,.9);display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;padding:24px';
-  o.innerHTML='<div style="color:#fff;font-size:14px;letter-spacing:1px;margin-bottom:12px;text-align:center">👆 长按图片保存到相册<br><span style="font-size:11px;opacity:.5">然后去发朋友圈</span></div>'
-    +'<img src="'+u+'" style="max-width:100%;max-height:65vh;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.5);display:block">'
-    +'<button onclick="this.parentElement.remove()" style="margin-top:20px;padding:10px 40px;border:1px solid rgba(255,255,255,.15);border-radius:8px;background:rgba(255,255,255,.05);color:#fff;font-size:14px;cursor:pointer;font-family:inherit">✕ 关闭</button>';
-  document.body.appendChild(o);
+    html2canvas(el,{scale:2,useCORS:true,logging:false,backgroundColor:'#0f0f0f',
+      onclone:function(d){
+        var e=d.getElementById('capArea');
+        if(!e)return;
+        e.style.width='360px';e.style.margin='0 auto';e.style.padding='16px';
+        var b=e.querySelectorAll('button');
+        for(var i=0;i<b.length;i++)b[i].style.display='none';
+        var p=e.querySelector('.stats-pct');
+        if(p){p.style.color='#feca57';p.style.webkitTextFillColor='#feca57';p.style.background='none'}
+      }
+    }).then(function(c){
+      var u=c.toDataURL('image/jpeg',0.8);
+      var o=document.createElement('div');
+      o.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;background:rgba(0,0,0,.92);text-align:center;overflow-y:auto;-webkit-overflow-scrolling:touch';
+      o.innerHTML='<div style="color:#fff;font-size:15px;padding:40px 20px 10px;letter-spacing:1px;line-height:1.8">👆 长按图片保存</div>'
+        +'<img src="'+u+'" style="max-width:100%;width:320px;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.5);display:inline-block">'
+        +'<div style="padding:20px"><button onclick="this.parentNode.parentNode.remove()" style="padding:10px 40px;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:rgba(255,255,255,.05);color:#fff;font-size:14px;font-family:inherit">✕ 关闭</button></div>';
+      document.body.appendChild(o);
+    }).catch(function(){st('截图失败请手动截图')});
+  }catch(e){st('截图失败请手动截图')}
 }
 
 hm();
