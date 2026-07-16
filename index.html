@@ -232,7 +232,8 @@ function end(){
       <div class="go-desc">${s.death}</div>
 <button class="btn btn-danger" onclick="go()">🔄 再试一次</button>
       <div style="height:6px"></div>
-      <button class="btn btn-primary" onclick="cap()">📤 分享给好友</button>
+      <button class="btn btn-primary" onclick="shareLink()">📤 分享给好友</button>
+      <div style="font-size:10px;color:rgba(240,236,228,.35);text-align:center;margin-top:6px;letter-spacing:.5px;line-height:1.7">📱 截屏保存 · 或点右上角 <span style="border:1px solid rgba(240,236,228,.2);border-radius:3px;padding:0 5px;font-size:8px">···</span> 转发</div>
 <div class="go-qr"><img src="${DATA.qrSrc}" alt="扫码"/></div>
       
       <div class="go-brand">灵客星球</div></div>`;
@@ -244,7 +245,8 @@ function end(){
     <div style="font-size:11px;color:rgba(240,236,228,.6);margin:2px 0 8px">你成功挽回了${DATA.title}的心</div>
     ${statsHTML(STAGES.length)}
     <div class="win-desc">${DATA.winDesc}</div>
-    <button class="btn btn-primary" onclick="cap()">📤 分享给好友</button>
+    <button class="btn btn-primary" onclick="shareLink()">📤 分享给好友</button>
+      <div style="font-size:10px;color:rgba(240,236,228,.35);text-align:center;margin-top:6px;letter-spacing:.5px;line-height:1.7">📱 截屏保存 · 或点右上角 <span style="border:1px solid rgba(240,236,228,.2);border-radius:3px;padding:0 5px;font-size:8px">···</span> 转发</div>
     <div style="height:6px"></div>
     <button class="btn btn-second" onclick="go()">🔄 再测一次</button>
     <div class="win-qr"><img src="${DATA.qrSrc}" alt="扫码"/></div>
@@ -270,18 +272,14 @@ function st(m){
   clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),2500);
 }
 
-function cap(){
-  if(navigator.share){
-    navigator.share({title:'挽回'+DATA.title+'挑战',text:'我正在挑战【挽回'+DATA.title+'】你能闯到第几关？来试试吧 👇',url:window.location.href}).catch(function(){});
-  }else{
-    var e=document.createElement('textarea');
-    e.value='我正在挑战【挽回'+DATA.title+'】你能闯到第几关？来试试吧 👇 '+window.location.href;
-    e.style.position='fixed';e.style.opacity='0';
-    document.body.appendChild(e);e.select();
-    try{document.execCommand('copy')}catch(e){}
-    document.body.removeChild(e);
-    alert('已复制链接，请粘贴发送给好友');
-  }
+function shareLink(){
+  var e=document.createElement('textarea');
+  e.value='我正在挑战【挽回'+DATA.title+'】来试试你能闯到第几关 👇 '+window.location.href;
+  e.style.position='fixed';e.style.opacity='0';
+  document.body.appendChild(e);e.select();
+  try{document.execCommand('copy')}catch(e){}
+  document.body.removeChild(e);
+  st('✅ 已复制，去转发给好友吧');
 }
 
 hm();
