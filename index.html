@@ -93,6 +93,15 @@ body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#1a150e;c
 .brand .bn{font-size:14px;font-weight:700;color:#f0ece4;letter-spacing:2px}
 .brand .bs{font-size:10px;color:rgba(240,236,228,.25);margin-top:3px;line-height:1.5}
 .ft{font-size:9px;color:rgba(240,236,228,.15);text-align:center;margin-top:16px;line-height:1.6}
+
+.stats-box{margin-bottom:16px;padding:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px}
+.stats-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.stats-level{font-size:15px;font-weight:700;color:#f0ece4}
+.stats-pct{font-size:14px;font-weight:800;background:linear-gradient(135deg,#feca57,#ff9ff3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stats-track{height:6px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden;margin-bottom:6px}
+.stats-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#feca57,#ff9ff3);transition:width 1s ease}
+.stats-info{font-size:10px;color:rgba(240,236,228,.25);display:flex;justify-content:space-between}
+.stats-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:600;background:rgba(254,202,87,.08);color:#feca57;margin-left:4px}
 </style>
 </head>
 <body>
@@ -118,14 +127,31 @@ const DATA={
   emoji:'🔧',title:'ISTP',subtitle:'随性自由的实干家',
   desc:'ISTP 需要自由和空间。你越抓越紧、越问越多，TA就越想逃。不是不爱你，是窒息感让TA本能地想挣脱。',
   color:'#f59e0b',qrSrc:'qrcode.jpg',
-  winDesc:'你给了ISTP需要的自由和空间。你没有追问、没有控制、没有情绪绑架。TA发现你是那个例外——跟你在一起不会窒息。所以TA选择了回来。'
-};
+  winDesc:'你给了ISTP需要的自由和空间。你没有追问、没有控制、没有情绪绑架。TA发现你是那个例外——跟你在一起不会窒息。所以TA选择了回来。',difficulty:'★★★★☆',diffLabel:'自由型 · 给空间比纠缠有用',dist:[100,75,56,40,28,18,10,6,3.5,1.5,0.5,0.2,0.1]};
 
 const STAGES=[{scene:"TA想自己出去兜风你说带上我",line:"想自己待会。",options:["好 那你注意安全 到了跟我说一声","我带你去吧 我不吵你","你是不是嫌我烦了","我等你回来 想我了就找我"],safe:1,death:"你说不放心 TA觉得被拴住了"},{scene:"你问TA在想什么问了很多遍",line:"没什么。",options:["你肯定在想什么 你就告诉我嘛","好 不说就不说 你什么时候想说再跟我说","你是不是生我气了","不说拉倒 我还不稀罕知道呢"],safe:2,death:"你越问 TA越不想说 最后什么都不说"},{scene:"TA修东西你在旁边一直指挥",line:"我来就好。",options:["我怕你不会弄 想帮帮你","你每次都嫌我烦 我好心没好报","好 那你弄 我去给你拿点喝的","你会不会啊 要不要我来看一下"],safe:3,death:"你说你这样不对 TA让你来 你也不会"},{scene:"TA想去冒险你说太危险",line:"那算了。",options:["行 去就去 我跟着你你保护我就行","真的太危险了 换个安全点的吧","那你去吧 我在家等你","你要是有个三长两短怎么办"],safe:1,death:"算了 TA去了 但没带你"},{scene:"你给TA发了很多消息问在干嘛",line:"在忙。",options:["你在忙什么呀 跟我说说呗","你每次都忙 也不知道是不是不想理我","好吧你忙 但你别太久了","好 不吵你 忙完找我"],safe:4,death:"在忙不是没空是没空理你"},{scene:"TA遇到问题你在旁边干着急",line:"我能处理。",options:["你搞不定就让我来试试","需要帮忙就叫我一声 我就在旁边","你每次都自己扛 我看着好心疼","让我看看什么问题 说不定我懂"],safe:2,death:"你说我担心 TA说不需要担心需要帮忙"},{scene:"TA想一个人去旅行",line:"想去走走。",options:["想去就去 注意安全 到了跟我说一声","一个人去多没意思 我请假陪你去","你是不是想一个人待着 那我怎么办","你去吧 反正我在不在你都一样"],safe:1,death:"你说一起去 TA说想一个人 包括一个人生活"},{scene:"TA不再跟你分享有趣的事了",line:"没什么好说的。",options:["你这几天都不跟我说话了 我哪里做错了","你是不是有别人了才不想跟我聊","那等你想说了 我随时都在","你不说那我也不说了"],safe:3,death:"没什么好说 因为跟你说了也不懂"},{scene:"你在TA专注的时候打扰TA",line:"等一下。",options:["你等一下是多久 总要有个时间吧","好我等你 但你快点","你就不能先停一下听我说句话吗","好你先忙 我不急"],safe:4,death:"你催 TA觉得你是干扰源"},{scene:"TA的情绪不对你问怎么了",line:"没事。",options:["那我陪你坐会儿","你分明有事为什么要说没事","你不说我怎么帮你 你说啊","每次都说没事 我真的好累"],safe:1,death:"你反复问 TA直接用行动解决 包括解决关系"},{scene:"TA说你不懂TA的世界",line:"算了。",options:["你的世界就是不想让我进","那你教我 我想懂你","你说得对 我确实不懂你","不懂就不懂吧 谁稀罕懂"],safe:2,death:"算了 TA回到自己的世界 不带你了"},{scene:"TA已经懒得解释了",line:"就这样吧。",options:["别这样 我们再聊聊好不好","就这样吧 你说的","好 尊重你的决定 但我还是在这里","你每次都这样 算了算了"],safe:3,death:"就这样吧 你和TA就这样了"}];
 
 let cur=0,over=false;
 const A=document.getElementById('app');
 const LABELS=['A','B','C','D'];
+const SK='mbti_wb';
+function ls(){try{return JSON.parse(localStorage.getItem(SK))||{}}catch(e){return{}}}
+function sv(t,l,w){const a=ls();if(!a[t]||a[t].best<l){a[t]={best:l,won:w,date:Date.now()}}a[t].plays=(a[t].plays||0)+1;localStorage.setItem(SK,JSON.stringify(a))}
+function pct(l){const d=DATA.dist;return Math.round((d[Math.min(l,d.length-1)]||0)*10)/10}
+function statsHTML(level){
+  const p=pct(level);
+  return '<div class="stats-box">'
+    +'<div class="stats-row"><span class="stats-level">🏆 闯到第 '+level+'/12 关</span><span class="stats-pct">超过 '+p+'% 的挑战者</span></div>'
+    +'<div class="stats-track"><div class="stats-fill" style="width:'+p+'%"></div></div>'
+    +'<div class="stats-info"><span>📊 基于挑战者数据</span><span>'+DATA.difficulty+' <span class="stats-badge">'+DATA.diffLabel+'</span></span></div>'
+    +'</div>';
+}
+function pbHTML(){
+  const a=ls()[DATA.title];
+  if(!a)return'';
+  const p=pct(a.best);
+  return'<div style="font-size:11px;color:rgba(240,236,228,.25);margin-bottom:16px;text-align:center">🏅 个人最佳：第 '+a.best+'/12 关 · 曾超过 '+p+'% 的挑战者</div>';
+}
 
 function hm(){
   A.innerHTML=`<div class="home">
@@ -136,7 +162,9 @@ function hm(){
     <div class="home-stats">
       <span>💀 选错即输</span>
       <span>🏆 共${STAGES.length}关</span>
+      <span>${DATA.difficulty}</span>
     </div>
+    ${pbHTML()}
     <button class="btn btn-primary" onclick="go()">▶ 开始挑战</button>
     <div class="brand" style="margin-top:20px">
       <img src="${DATA.qrSrc}" alt="qr"/>
@@ -182,27 +210,33 @@ function pk(i){
     btns[i].classList.add('wrong');
     document.body.classList.add('shake');
     over=true;
+    sv(DATA.title,Math.min(cur+1,STAGES.length),false);
     setTimeout(()=>{A.innerHTML=end()},700);
   }
 }
 
 function end(){
   if(over){
+    const lvl=Math.min(cur+1,STAGES.length);
+
     const s=STAGES[Math.min(cur,STAGES.length-1)];
     return `<div class="go-screen fi">
       <span class="go-icon">💀</span>
       <div class="go-title">挽回失败</div>
       <div class="go-sub">你在第${Math.min(cur+1,STAGES.length)}关说错了话</div>
+      ${statsHTML(lvl)}
       <div class="go-desc">${s.death}</div>
       <div class="go-qr"><img src="${DATA.qrSrc}" alt="扫码聊"/></div>
       <div class="go-brand">灵客星球</div>
       <button class="btn btn-danger" onclick="go()">🔄 再试一次</button>
     </div>`;
   }
+    sv(DATA.title,STAGES.length,true);
   return `<div class="win-screen fi">
     <span class="win-icon">🎉</span>
     <div class="win-title">恭喜通关！</div>
     <div style="font-size:12px;color:rgba(240,236,228,.3);margin:4px 0 14px">你成功挽回了${DATA.title}的心</div>
+    ${statsHTML(STAGES.length)}
     <div class="win-desc">${DATA.winDesc}</div>
     <div class="win-qr"><img src="${DATA.qrSrc}" alt="扫码聊"/></div>
     <div class="win-brand">灵客星球</div>
