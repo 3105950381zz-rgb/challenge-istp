@@ -169,7 +169,7 @@ function hm(){
     <button class="btn btn-primary" onclick="go()">▶ 开始挑战</button>
     <div style="height:6px"></div>
     <button class="btn btn-primary" onclick="share()" style="font-size:12px">📤 分享给朋友</button>
-    <div style="font-size:9px;color:rgba(240,236,228,.2);text-align:center;margin-top:4px;letter-spacing:1px">或点右上角 ··· 转发给好友</div>
+    ${sh()}
     <div class="brand" style="margin-top:20px">
       <img src="${DATA.qrSrc}" alt="qr"/>
       <div>
@@ -235,7 +235,7 @@ function end(){
       <button class="btn btn-danger" onclick="go()">🔄 再试一次</button>
       <div style="height:6px"></div>
       <button class="btn btn-primary" onclick="share()">📤 分享给朋友</button>
-      <div style="font-size:9px;color:rgba(240,236,228,.2);text-align:center;margin-top:4px;letter-spacing:1px">或点右上角 ··· 转发给好友</div>
+      ${sh()}
     </div>`;
   }
     sv(DATA.title,STAGES.length,true);
@@ -252,32 +252,35 @@ function end(){
     <button class="btn btn-second" onclick="go()">🔄 再测一次</button>
     <div style="height:6px"></div>
     <button class="btn btn-primary" onclick="share()">📤 分享给朋友</button>
-    <div style="font-size:9px;color:rgba(240,236,228,.2);text-align:center;margin-top:4px;letter-spacing:1px">或点右上角 ··· 转发给好友</div>
+    ${sh()}
   </div>`;
 }
 
 
+function sh(){
+  return '<div style="font-size:10px;color:rgba(240,236,228,.45);text-align:center;margin-top:5px;letter-spacing:.5px">💡 点右上角 <span style="border:1px solid rgba(240,236,228,.25);border-radius:3px;padding:0 6px;font-size:9px">···</span> 也可转发给好友</div>';
+}
 function share(){
   const url=window.location.href;
   const title='挽回'+DATA.title+'挑战';
   const txt='我正在挑战【挽回'+DATA.title+'】！你能闯到第几关？来试试吧 👇';
-  if(window.WeixinJSBridge && WeixinJSBridge.invoke){
-    WeixinJSBridge.invoke('shareAppMessage',{title:title,desc:txt,link:url,imgUrl:''});
+  if(window.WeixinJSBridge&&WeixinJSBridge.invoke){
+    try{WeixinJSBridge.invoke('shareAppMessage',{title:title,desc:txt,link:url,imgUrl:'',type:'link',data:{}})}catch(e){}
     return;
   }
   if(navigator.share){
-    navigator.share({title:title,text:txt,url:url}).catch(function(){});
+    navigator.share({title:title,text:txt,url:url}).then(function(){st('✅ 分享成功')}).catch(function(){cp(url,txt)});
     return;
   }
-  copyText(txt+' '+url);
-  st('已复制，请点击右上角 ··· 分享到朋友圈');
+  cp(url,txt);
 }
-function copyText(t){
-  const e=document.createElement('textarea');
-  e.value=decodeURIComponent(t);e.style.position='fixed';e.style.opacity='0';
+function cp(u,t){
+  var e=document.createElement('textarea');
+  e.value=t+' '+u;e.style.position='fixed';e.style.opacity='0';
   document.body.appendChild(e);e.select();
   try{document.execCommand('copy')}catch(e){}
   document.body.removeChild(e);
+  st('✅ 链接已复制，去转发给好友吧');
 }
 function st(m){
   const t=document.getElementById('toast');
