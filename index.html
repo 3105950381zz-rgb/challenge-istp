@@ -256,13 +256,18 @@ function end(){
 
 function share(){
   const url=window.location.href;
+  const title='挽回'+DATA.title+'挑战';
   const txt='我正在挑战【挽回'+DATA.title+'】！你能闯到第几关？来试试吧 👇';
-  if(navigator.share){
-    navigator.share({title:'挽回'+DATA.title+'挑战',text:txt,url:url}).catch(()=>{});
-  }else{
-    copyText(url+'%0A%0A'+encodeURIComponent(txt));
-    st('链接已复制，快去分享给朋友吧！');
+  if(window.WeixinJSBridge && WeixinJSBridge.invoke){
+    WeixinJSBridge.invoke('shareAppMessage',{title:title,desc:txt,link:url,imgUrl:''});
+    return;
   }
+  if(navigator.share){
+    navigator.share({title:title,text:txt,url:url}).catch(function(){});
+    return;
+  }
+  copyText(txt+' '+url);
+  st('已复制，请点击右上角 ··· 分享到朋友圈');
 }
 function copyText(t){
   const e=document.createElement('textarea');
