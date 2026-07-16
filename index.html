@@ -271,14 +271,23 @@ function st(m){
 }
 
 function cap(){
-  if(typeof html2canvas==='undefined'){st('⚠️ 请手动截图保存');return}
-  const el=document.getElementById('capArea');
+  if(typeof html2canvas==='undefined'){st('⚠️ 请手动截图');return}
+  var el=document.getElementById('capArea');
   if(!el)return;
   try{
-    html2canvas(el,{scale:2,useCORS:true,logging:false,backgroundColor:null}).then(function(c){
-      showImg(c.toDataURL('image/png'));
-    }).catch(function(e){st('⚠️ 截图失败，请手动截图')});
-  }catch(e){st('⚠️ 截图失败，请手动截图')}
+    var c=el.cloneNode(true);
+    c.style.cssText='width:360px;padding:20px 16px;background:#0f0f0f;border-radius:16px;text-align:center;font-family:PingFang SC,Microsoft YaHei,sans-serif;color:#f0ece4';
+    var btns=c.querySelectorAll('button');
+    for(var i=0;i<btns.length;i++)btns[i].style.display='none';
+    var pct=c.querySelector('.stats-pct');
+    if(pct)pct.style.cssText='font-size:12px;font-weight:800;color:#feca57';
+    c.style.position='fixed';c.style.left='-9999px';c.style.top='0';
+    document.body.appendChild(c);
+    html2canvas(c,{scale:2,useCORS:true,logging:false,backgroundColor:'#0f0f0f'}).then(function(canvas){
+      document.body.removeChild(c);
+      showImg(canvas.toDataURL('image/png'));
+    }).catch(function(){st('⚠️ 截图失败请手动截图');try{document.body.removeChild(c)}catch(e){}});
+  }catch(e){st('⚠️ 截图失败请手动截图')}
 }
 function showImg(u){
   var o=document.createElement('div');
